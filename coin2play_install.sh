@@ -6,7 +6,7 @@ CONFIGFOLDER='/root/.coin2play'
 COIN_DAEMON='coin2playd'
 COIN_CLI='coin2play-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_TGZ='https://github.com/Coin2Play/c2pcore/releases/download/v1.1.0.0/c2pcore-linux.tar.gz'
+COIN_TGZ='https://github.com/Coin2Play/c2pcore/releases/download/v1.1.0.0/Coin2Play-linux.tar.gz'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='Coin2play'
 COIN_PORT=2221
@@ -26,7 +26,7 @@ function download_node() {
   wget -q $COIN_TGZ
   compile_error
   tar xvzf $COIN_ZIP  >/dev/null 2>&1
-  chmod +x $COIN_DAEMON $COIN_CLI >/dev/null 2>&1
+  chmod 755 $COIN_DAEMON $COIN_CLI >/dev/null 2>&1
   cp $COIN_DAEMON $COIN_CLI $COIN_PATH >/dev/null 2>&1
   cd - >/dev/null 2>&1
   rm -rf $TMP_FOLDER >/dev/null 2>&1
